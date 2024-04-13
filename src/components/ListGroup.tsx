@@ -8,6 +8,10 @@ function ListGroup() {
   const handleClick = (event: MouseEvent) => {
     console.log(event);
   };
+  const numbers = [1, 2, 3, 4, 5];
+  const dNumber = numbers.map((eachNumber) => {
+    return eachNumber * 2 + ",";
+  });
   return (
     <Fragment>
       <h1>This is Heading</h1>
@@ -29,6 +33,7 @@ function ListGroup() {
           </li>
         ))}
       </ul>
+      <p>{dNumber}</p>
     </Fragment>
   );
 }
