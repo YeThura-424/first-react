@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-
+import { isEmptyArr } from "../utils/Util";
 function CardGroup() {
   const style = {
     margin: "16px",
@@ -25,15 +25,17 @@ function CardGroup() {
     },
   ];
 
-  const blockCards = cardArr.map((blog, index) => {
-    return (
-      <div className="example-card col-3" style={style} key={index}>
-        <h2>{blog.title}</h2>
-        <p>{blog.description}</p>
-        <button className="btn btn-primary">ClickMe</button>
-      </div>
-    );
-  });
+  const blockCards = isEmptyArr(cardArr)
+    ? []
+    : cardArr.map((blog, index) => {
+        return (
+          <div className="example-card col-3" style={style} key={index}>
+            <h2>{blog.title}</h2>
+            <p>{blog.description}</p>
+            <button className="btn btn-primary">ClickMe</button>
+          </div>
+        );
+      });
   return (
     <Fragment>
       <div className="row">{blockCards}</div>

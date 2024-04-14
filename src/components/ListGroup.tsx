@@ -1,4 +1,5 @@
 import { Fragment, MouseEvent, useState } from "react";
+import { dumpLog } from "../utils/Util";
 function ListGroup() {
   let items = ["Yangon", "Mandalay", "Lashio", "NayPyiTaw", "Taungyi"];
   //Hook
@@ -6,7 +7,8 @@ function ListGroup() {
   // items = [];
   // Event Handler
   const handleClick = (event: MouseEvent) => {
-    console.log(event);
+    // console.log(event);
+    dumpLog(event);
   };
   const numbers = [1, 2, 3, 4, 5];
   const dNumber = numbers.map((eachNumber) => {
