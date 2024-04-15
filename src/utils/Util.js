@@ -1,4 +1,4 @@
-const isEmptyArr = (arr) => {
+export const isEmptyArr = (arr) => {
   if (arr == undefined && arr == null && arr.length > 0) {
     return true;
   }
@@ -6,8 +6,8 @@ const isEmptyArr = (arr) => {
   return false;
 };
 
-const dumpLog = (message) => {
+export const dumpLog = (message) => {
   console.log(message);
 };
 
-export { isEmptyArr, dumpLog };
+// export { isEmptyArr, dumpLog };
