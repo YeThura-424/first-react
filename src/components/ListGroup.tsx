@@ -16,26 +16,30 @@ function ListGroup() {
   });
   return (
     <Fragment>
-      <h1>This is Heading</h1>
-      {/* {items.length === 0 ? <p>No item found</p> : null}  */}
+      <div className="row">
+        <div className="col-12">
+          <h1>This is Heading</h1>
+          {/* {items.length === 0 ? <p>No item found</p> : null}  */}
 
-      {items.length === 0 && <p>No Item Found</p>}
-      <ul className="list-group">
-        {items.map((item, index) => (
-          <li
-            key={item}
-            className={
-              selectedIndex === index
-                ? "list-group-item active"
-                : "list-group-item"
-            }
-            onClick={() => setSelectedIndex(index)}
-          >
-            {item}
-          </li>
-        ))}
-      </ul>
-      <p>{dNumber}</p>
+          {items.length === 0 && <p>No Item Found</p>}
+          <ul className="list-group">
+            {items.map((item, index) => (
+              <li
+                key={item}
+                className={
+                  selectedIndex === index
+                    ? "list-group-item active"
+                    : "list-group-item"
+                }
+                onClick={() => setSelectedIndex(index)}
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
+          <p>{dNumber}</p>
+        </div>
+      </div>
     </Fragment>
   );
 }

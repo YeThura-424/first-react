@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-
+import { dumpLog } from "../utils/Util";
 class Cards extends Component {
   style = {
     margin: "16px",
@@ -37,9 +37,14 @@ class Cards extends Component {
     );
   });
   toggleCards = () => {
-    this.setState({ showCard: !this.state.showCard });
+    this.setState((prevState, prevProp) => {
+      return {
+        showCard: !prevState.showCard,
+      };
+    });
   };
   render() {
+    dumpLog("Component Rendered");
     return (
       <Fragment>
         <button onClick={this.toggleCards}>

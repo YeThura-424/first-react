@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import { isEmptyArr } from "../utils/Util";
+import Cards from "./CardGroupList";
 function CardGroup() {
   const style = {
     margin: "16px",
@@ -29,11 +30,16 @@ function CardGroup() {
     ? []
     : cardArr.map((blog, index) => {
         return (
-          <div className="example-card col-3" style={style} key={index}>
-            <h2>{blog.title}</h2>
-            <p>{blog.description}</p>
-            <button className="btn btn-primary">ClickMe</button>
-          </div>
+          // <div className="example-card col-3" style={style} key={index}>
+          //   <h2>{blog.title}</h2>
+          //   <p>{blog.description}</p>
+          //   <button className="btn btn-primary">ClickMe</button>
+          // </div>
+          <Cards
+            title={blog.title}
+            description={blog.description}
+            key={index}
+          />
         );
       });
   return (

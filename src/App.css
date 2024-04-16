@@ -1,4 +1,19 @@
 body {
-  margin: 0 !important;
-  padding: 0 !important;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.like-count {
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col-4 {
+  flex: 0 0 33%;
+  max-width: 33%;
 }
