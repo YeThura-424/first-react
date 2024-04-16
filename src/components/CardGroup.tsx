@@ -11,21 +11,26 @@ function CardGroup() {
   const cardArr = [
     {
       title: "Block Title 1",
+      likeCount: 0,
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritati autem vel odit asperiores quae eveniet reprehenderit obcaecati",
     },
     {
       title: "Block Title 2",
+      likeCount: 0,
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritati autem vel odit asperiores quae eveniet reprehenderit obcaecati",
     },
     {
       title: "Block Title 3",
+      likeCount: 0,
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritati autem vel odit asperiores quae eveniet reprehenderit obcaecati",
     },
   ];
-
+  const onLikeBtnClick = () => {
+    alert("Blog Card Clicked");
+  };
   const blockCards = isEmptyArr(cardArr)
     ? []
     : cardArr.map((blog, index) => {
@@ -39,6 +44,9 @@ function CardGroup() {
             title={blog.title}
             description={blog.description}
             key={index}
+            likeCount={blog.likeCount}
+            onLikeBtnClick={onLikeBtnClick}
+            position={index}
           />
         );
       });

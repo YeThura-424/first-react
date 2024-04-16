@@ -1,32 +1,34 @@
-import React, { Component } from "react";
+import React from "react";
 import { dumpLog } from "../utils/Util";
-class Cards extends Component {
-  style = {
+const Cards = (props: any) => {
+  const style = {
     margin: "16px",
     padding: "16px",
     borderRadius: "5px",
     boxShadow: "0px 0px 9px 4px #ccc4f0",
   };
-  state = {
-    likeCount: 0,
-  };
 
-  render() {
-    return (
-      <div
-        className="example-card col-4"
-        style={this.style}
-        key={this.props.index}
+  //   onLikeBtnClick = () => {
+  //     this.setState((prevState, prevProp) => {
+  //       return {
+  //         likeCount: prevState.likeCount + 1,
+  //       };
+  //     });
+  //   };
+  return (
+    <div className="example-card col-4" style={style} key={props.index}>
+      <h2>{props.title}</h2>
+      <p>{props.description}</p>
+      <p>
+        Like Count : <span className="like-count">{props.likeCount}</span>
+      </p>
+      <button
+        onClick={() => props.onLikeBtnClick(props.position)}
+        className="btn btn-primary"
       >
-        <h2>{this.props.title}</h2>
-        <p>{this.props.description}</p>
-        <p>
-          Like Count :{" "}
-          <span className="like-count">{this.state.likeCount}</span>
-        </p>
-        <button className="btn btn-primary">Like</button>
-      </div>
-    );
-  }
-}
+        Like
+      </button>
+    </div>
+  );
+};
 export default Cards;
