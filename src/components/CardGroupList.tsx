@@ -22,10 +22,7 @@ const Cards = (props: any) => {
       <p>
         Like Count : <span className="like-count">{props.likeCount}</span>
       </p>
-      <button
-        onClick={() => props.onLikeBtnClick(props.position)}
-        className="btn btn-primary"
-      >
+      <button onClick={props.onLikeBtnClick} className="btn btn-primary">
         Like
       </button>
     </div>

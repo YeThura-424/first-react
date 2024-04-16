@@ -1,39 +1,44 @@
-import { Fragment } from "react";
+import { Fragment, Component, ReactNode } from "react";
 import { isEmptyArr } from "../utils/Util";
 import Cards from "./CardGroupList";
-function CardGroup() {
-  const style = {
+class CardGroup extends Component {
+  style = {
     margin: "16px",
     padding: "16px",
     borderRadius: "5px",
     boxShadow: "0px 0px 9px 4px #ccc4f0",
   };
-  const cardArr = [
-    {
-      title: "Block Title 1",
-      likeCount: 0,
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritati autem vel odit asperiores quae eveniet reprehenderit obcaecati",
-    },
-    {
-      title: "Block Title 2",
-      likeCount: 0,
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritati autem vel odit asperiores quae eveniet reprehenderit obcaecati",
-    },
-    {
-      title: "Block Title 3",
-      likeCount: 0,
-      description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritati autem vel odit asperiores quae eveniet reprehenderit obcaecati",
-    },
-  ];
-  const onLikeBtnClick = () => {
-    alert("Blog Card Clicked");
+  state = {
+    cardArr: [
+      {
+        title: "Block Title 1",
+        likeCount: 0,
+        description:
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritati autem vel odit asperiores quae eveniet reprehenderit obcaecati",
+      },
+      {
+        title: "Block Title 2",
+        likeCount: 0,
+        description:
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritati autem vel odit asperiores quae eveniet reprehenderit obcaecati",
+      },
+      {
+        title: "Block Title 3",
+        likeCount: 0,
+        description:
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritati autem vel odit asperiores quae eveniet reprehenderit obcaecati",
+      },
+    ],
   };
-  const blockCards = isEmptyArr(cardArr)
+  onLikeBtnClick = (pos: any) => {
+    const updatedBlogList = this.state.cardArr;
+    const updatedBlogObj = updatedBlogList[pos];
+    // console.log(updatedBlogObj);
+  };
+
+  blockCards = isEmptyArr(this.state.cardArr)
     ? []
-    : cardArr.map((blog, index) => {
+    : this.state.cardArr.map((blog, index) => {
         return (
           // <div className="example-card col-3" style={style} key={index}>
           //   <h2>{blog.title}</h2>
@@ -45,16 +50,17 @@ function CardGroup() {
             description={blog.description}
             key={index}
             likeCount={blog.likeCount}
-            onLikeBtnClick={onLikeBtnClick}
-            position={index}
+            onLikeBtnClick={() => this.onLikeBtnClick(index)}
           />
         );
       });
-  return (
-    <Fragment>
-      <div className="row">{blockCards}</div>
-    </Fragment>
-  );
+  render() {
+    return (
+      <Fragment>
+        <div className="row">{this.blockCards}</div>
+      </Fragment>
+    );
+  }
 }
 
 export default CardGroup;
