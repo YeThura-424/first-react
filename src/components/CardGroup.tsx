@@ -33,31 +33,36 @@ class CardGroup extends Component {
   onLikeBtnClick = (pos: any) => {
     const updatedBlogList = this.state.cardArr;
     const updatedBlogObj = updatedBlogList[pos];
+
+    updatedBlogObj.likeCount = updatedBlogObj.likeCount + 1;
+    updatedBlogList[pos] = updatedBlogObj;
+    console.log(updatedBlogList);
+    this.setState({ cardArr: updatedBlogList });
     // console.log(updatedBlogObj);
   };
 
-  blockCards = isEmptyArr(this.state.cardArr)
-    ? []
-    : this.state.cardArr.map((blog, index) => {
-        return (
-          // <div className="example-card col-3" style={style} key={index}>
-          //   <h2>{blog.title}</h2>
-          //   <p>{blog.description}</p>
-          //   <button className="btn btn-primary">ClickMe</button>
-          // </div>
-          <Cards
-            title={blog.title}
-            description={blog.description}
-            key={index}
-            likeCount={blog.likeCount}
-            onLikeBtnClick={() => this.onLikeBtnClick(index)}
-          />
-        );
-      });
   render() {
+    const blockCards = isEmptyArr(this.state.cardArr)
+      ? []
+      : this.state.cardArr.map((blog, index) => {
+          return (
+            // <div className="example-card col-3" style={style} key={index}>
+            //   <h2>{blog.title}</h2>
+            //   <p>{blog.description}</p>
+            //   <button className="btn btn-primary">ClickMe</button>
+            // </div>
+            <Cards
+              title={blog.title}
+              description={blog.description}
+              key={index}
+              likeCount={blog.likeCount}
+              onLikeBtnClick={() => this.onLikeBtnClick(index)}
+            />
+          );
+        });
     return (
       <Fragment>
-        <div className="row">{this.blockCards}</div>
+        <div className="row">{blockCards}</div>
       </Fragment>
     );
   }
