@@ -34,6 +34,14 @@ function ProductDetail() {
       </div>
     );
   });
+  const hour =
+    new Date().getHours() > 9
+      ? new Date().getHours()
+      : "0" + new Date().getHours();
+  const minute =
+    new Date().getMinutes() > 9
+      ? new Date().getMinutes()
+      : "0" + new Date().getMinutes();
   return (
     <Fragment>
       <div className="product-detail row">
@@ -43,6 +51,15 @@ function ProductDetail() {
             src="https://imgur.com/iOeUBV7.png"
             alt="Product Preview"
           />
+          {/* <div className="time">
+            <p>
+              {hour}:{minute}
+            </p>
+          </div> */}
+          <div className="heart-beat">
+            <i className="fa-solid fa-heart-pulse"></i>
+            <p>89</p>
+          </div>
         </div>
         <div className="right col-6">
           <div className={product.productInfo}>

@@ -5,9 +5,12 @@
   width: 60px;
   height: 60px;
   cursor: pointer;
+  border: 2px solid teal;
+  border-radius: 5px;
 }
 .optionContainer {
   display: flex;
+  gap: 10px;
 }
 .productInfo {
   display: flex;
