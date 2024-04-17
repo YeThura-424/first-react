@@ -26,16 +26,15 @@ function ProductDetail() {
     featureList: ["Time", "Heart Rate"],
   };
   Object.freeze(ProductData);
-  const [selectedImg, setSelectedImg] = useState(
-    "https://imgur.com/iOeUBV7.png"
-  );
-  const [optionIndex, setSelectIndex] = useState(0);
-  const setImgOption = (img: any, index: any) => {
-    setSelectIndex(index);
-    setSelectedImg(img.imageUrl);
-  };
+  const [selectedImg, setSelectedImg] = useState({
+    img: "https://imgur.com/iOeUBV7.png",
+    index: 0,
+  });
+  // const setImgOption = (img: any, index: any) => {
+  //   setSelectedImg(img.imageUrl);
+  // };
   const colorSelect = ProductData.colorOptions.map((color, index) => {
-    const active = index === optionIndex ? "true" : "false";
+    const active = index === selectedImg.index ? true : false;
     return (
       <div key={index}>
         <img
@@ -45,7 +44,13 @@ function ProductDetail() {
             product.colorOptions,
             active ? product.colorOptionsActive : "",
           ].join(" ")}
-          onClick={() => setImgOption(color.imageUrl, index)}
+          onClick={() =>
+            setSelectedImg({
+              ...selectedImg,
+              img: color.imageUrl,
+              index: index,
+            })
+          }
         />
       </div>
     );
@@ -64,7 +69,7 @@ function ProductDetail() {
         <div className="left col-4">
           <img
             className={product.productPreview}
-            src={selectedImg}
+            src={selectedImg.img}
             alt="Product Preview"
           />
           {/* <div className="time">
