@@ -30,6 +30,7 @@ function ProductDetail() {
     img: "https://imgur.com/iOeUBV7.png",
     index: 0,
   });
+  const [defaultFeature, setDefaultFeature] = useState("time");
   // const setImgOption = (img: any, index: any) => {
   //   setSelectedImg(img.imageUrl);
   // };
@@ -72,15 +73,19 @@ function ProductDetail() {
             src={selectedImg.img}
             alt="Product Preview"
           />
-          {/* <div className="time">
-            <p>
-              {hour}:{minute}
-            </p>
-          </div> */}
-          <div className="heart-beat">
-            <i className="fa-solid fa-heart-pulse"></i>
-            <p>89</p>
-          </div>
+
+          {defaultFeature === "time" ? (
+            <div className="time">
+              <p>
+                {hour}:{minute}
+              </p>
+            </div>
+          ) : (
+            <div className="heart-beat">
+              <i className="fa-solid fa-heart-pulse"></i>
+              <p>89</p>
+            </div>
+          )}
         </div>
         <div className="right col-6">
           <div className={product.productInfo}>
@@ -90,8 +95,18 @@ function ProductDetail() {
             <div className={product.optionContainer}>{colorSelect}</div>
             <h3>Features</h3>
             <div className="features">
-              <button className="active">Time</button>
-              <button>Heart Rate</button>
+              <button
+                className={defaultFeature === "time" ? "active" : ""}
+                onClick={() => setDefaultFeature("time")}
+              >
+                Time
+              </button>
+              <button
+                className={defaultFeature === "heartrate" ? "active" : ""}
+                onClick={() => setDefaultFeature("heartrate")}
+              >
+                Heart Rate
+              </button>
             </div>
             <button className="buy-now">Buy Now</button>
           </div>

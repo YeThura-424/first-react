@@ -57,6 +57,9 @@ button.active {
   display: flex;
   gap: 15px;
 }
+.product-detail {
+  box-shadow: rgb(204, 196, 240) 0px 0px 9px 4px;
+}
 .left {
   position: relative;
 }

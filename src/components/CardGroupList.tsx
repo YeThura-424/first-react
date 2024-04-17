@@ -8,13 +8,6 @@ const Cards = (props: any) => {
     boxShadow: "0px 0px 9px 4px #ccc4f0",
   };
 
-  //   onLikeBtnClick = () => {
-  //     this.setState((prevState, prevProp) => {
-  //       return {
-  //         likeCount: prevState.likeCount + 1,
-  //       };
-  //     });
-  //   };
   return (
     <div className="example-card col-4" style={style} key={props.index}>
       <h2>{props.title}</h2>
