@@ -45,11 +45,17 @@ function ProductDetail() {
           />
         </div>
         <div className="right col-6">
-          <div className={product.productName}>
+          <div className={product.productInfo}>
             <h3>{ProductData.title}</h3>
             <p>{ProductData.description}</p>
             <h3>Select Color</h3>
             <div className={product.optionContainer}>{colorSelect}</div>
+            <h3>Features</h3>
+            <div className="features">
+              <button className="active">Time</button>
+              <button>Heart Rate</button>
+            </div>
+            <button className="buy-now">Buy Now</button>
           </div>
         </div>
       </div>
