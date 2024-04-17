@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import product from "../style/product.module.css";
 function ProductDetail() {
   const ProductData = {
@@ -26,11 +26,27 @@ function ProductDetail() {
     featureList: ["Time", "Heart Rate"],
   };
   Object.freeze(ProductData);
-
+  const [selectedImg, setSelectedImg] = useState(
+    "https://imgur.com/iOeUBV7.png"
+  );
+  const [optionIndex, setSelectIndex] = useState(0);
+  const setImgOption = (img: any, index: any) => {
+    setSelectIndex(index);
+    setSelectedImg(img.imageUrl);
+  };
   const colorSelect = ProductData.colorOptions.map((color, index) => {
+    const active = index === optionIndex ? "true" : "false";
     return (
       <div key={index}>
-        <img src={color.imageUrl} alt="" className={product.colorOptions} />
+        <img
+          src={color.imageUrl}
+          alt=""
+          className={[
+            product.colorOptions,
+            active ? product.colorOptionsActive : "",
+          ].join(" ")}
+          onClick={() => setImgOption(color.imageUrl, index)}
+        />
       </div>
     );
   });
@@ -48,7 +64,7 @@ function ProductDetail() {
         <div className="left col-4">
           <img
             className={product.productPreview}
-            src="https://imgur.com/iOeUBV7.png"
+            src={selectedImg}
             alt="Product Preview"
           />
           {/* <div className="time">
