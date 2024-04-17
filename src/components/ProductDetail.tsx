@@ -26,6 +26,14 @@ function ProductDetail() {
     featureList: ["Time", "Heart Rate"],
   };
   Object.freeze(ProductData);
+
+  const colorSelect = ProductData.colorOptions.map((color, index) => {
+    return (
+      <div key={index}>
+        <img src={color.imageUrl} alt="" className={product.colorOptions} />
+      </div>
+    );
+  });
   return (
     <Fragment>
       <div className="product-detail row">
@@ -39,6 +47,9 @@ function ProductDetail() {
         <div className="right col-6">
           <div className={product.productName}>
             <h3>{ProductData.title}</h3>
+            <p>{ProductData.description}</p>
+            <h3>Select Color</h3>
+            <div className={product.optionContainer}>{colorSelect}</div>
           </div>
         </div>
       </div>
