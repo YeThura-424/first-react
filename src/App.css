@@ -92,3 +92,48 @@ button.active {
     transform: scale(1, 1);
   }
 }
+
+.password-wrapper {
+  user-select: none;
+  width: 600px;
+  height: 200px;
+  background-color: teal;
+  margin: 10px auto;
+  padding: 25px;
+  border-radius: 25px;
+}
+
+input[type="text"] {
+  padding: 10px 15px;
+  font-size: 16px;
+  width: 450px;
+  border-radius: 10px 0 0 10px;
+  outline: none;
+  border-color: rgb(85, 80, 80);
+  border-width: 1px 0 1px 1px;
+  border-style: solid;
+}
+
+button.copy-button {
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 0 10px 10px 0;
+  border-color: rgb(85, 80, 80);
+  border-width: 1px 1px 1px 0;
+  border-style: solid;
+  cursor: pointer;
+}
+
+.length-section,
+.number-section,
+.char-section {
+  display: flex;
+  align-items: center;
+}
+
+.lower-section {
+  padding-top: 15px;
+  display: flex;
+  justify-content: start;
+  column-gap: 20px;
+}
