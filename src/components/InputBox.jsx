@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useId } from "react";
 
 const InputBox = ({
   label,
@@ -10,11 +10,13 @@ const InputBox = ({
   amountDisabled = false,
   currencyDisabled = false,
 }) => {
+  const id = useId();
   return (
     <div className="currency-input-box-wrapper">
       <div className="amount-section">
-        <label htmlFor=""> {label} </label>
+        <label htmlFor={id}> {label} </label>
         <input
+          id={id}
           type="number"
           value={amount}
           disabled={amountDisabled}

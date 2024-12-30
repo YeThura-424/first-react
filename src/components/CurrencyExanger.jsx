@@ -18,7 +18,7 @@ const CurrencyExanger = () => {
   };
 
   const convert = () => {
-    setConvertedAmount(amount * currencyInfo[to]);
+    setConvertedAmount(Math.floor(amount * currencyInfo[to]));
   };
 
   return (
