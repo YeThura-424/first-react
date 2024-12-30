@@ -95,10 +95,11 @@ button.active {
 
 .password-wrapper {
   user-select: none;
-  width: 600px;
-  height: 200px;
+  width: 50%;
+  height: 100px;
   background-color: teal;
-  margin: 10px auto;
+  margin-top: 10px;
+  margin-left: 10px;
   padding: 25px;
   border-radius: 25px;
 }
@@ -111,6 +112,28 @@ input[type="text"] {
   outline: none;
   border-color: rgb(85, 80, 80);
   border-width: 1px 0 1px 1px;
+  border-style: solid;
+}
+
+input[type="number"] {
+  padding: 10px 15px;
+  font-size: 16px;
+  width: 100%;
+  border-radius: 10px;
+  outline: none;
+  border-color: rgb(85, 80, 80);
+  border-width: 1px;
+  border-style: solid;
+}
+
+select {
+  padding: 10px 15px;
+  font-size: 16px;
+  width: 250px;
+  border-radius: 10px;
+  outline: none;
+  border-color: rgb(85, 80, 80);
+  border-width: 1px;
   border-style: solid;
 }
 
@@ -131,9 +154,47 @@ button.copy-button {
   align-items: center;
 }
 
+.upper-section {
+  display: flex;
+}
+
 .lower-section {
   padding-top: 15px;
   display: flex;
   justify-content: start;
   column-gap: 20px;
+}
+
+.flex-box {
+  display: flex;
+  column-gap: 10px;
+}
+
+.currency-exchange-wrapper {
+  user-select: none;
+  width: 50%;
+  height: 150px;
+  background-color: rgb(183, 241, 241);
+  margin-top: 10px;
+  margin-left: 10px;
+  padding: 25px;
+  border-radius: 25px;
+}
+
+.amount-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.currency-input-box-wrapper {
+  display: flex;
+  justify-content: space-between;
+  background-color: aquamarine;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+p {
+  padding: 0;
+  margin: 0;
 }
