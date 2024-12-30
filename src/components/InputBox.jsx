@@ -18,7 +18,7 @@ const InputBox = ({
           type="number"
           value={amount}
           disabled={amountDisabled}
-          onChange={() => onAmountChange && onAmountChange(e.target.value)}
+          onChange={(e) => onAmountChange && onAmountChange(e.target.value)}
         />
       </div>
       <div className="currency-section">
